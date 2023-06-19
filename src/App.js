@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import CComponent from "./CComponent";
+import FComponent from "./FComponent";
 
 function App() {
+  const [flag, setFlag] = useState(true); //boolean
+
+  function changeFlag() {
+    setFlag(!flag);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={changeFlag}>Toggle Class Component</button>
+      <hr />
+      {flag ? <FComponent /> : ""}
     </div>
   );
 }
